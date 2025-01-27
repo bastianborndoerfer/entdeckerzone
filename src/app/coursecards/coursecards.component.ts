@@ -3,13 +3,15 @@ import {
   MatCard,
   MatCardActions,
   MatCardContent,
-  MatCardHeader,
+  MatCardHeader, MatCardImage,
   MatCardSubtitle,
   MatCardTitle
 } from '@angular/material/card';
+import {NgForOf} from '@angular/common';
+import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-course-overview',
+  selector: 'app-coursecards',
   templateUrl: './coursecards.component.html',
   standalone: true,
   imports: [
@@ -18,28 +20,41 @@ import {
     MatCardSubtitle,
     MatCardHeader,
     MatCardContent,
-    MatCardActions
+    MatCardActions,
+    NgForOf,
+    MatCardImage
   ]
 })
 export class CoursecardsComponent {
   courses = [
     {
-      title: 'Einführung in Angular',
+      title: 'Einfache Stromkreise',
       subtitle: 'Grundlagen und erste Schritte',
       description: 'Lerne die Grundlagen von Angular und baue deine erste Webanwendung.',
-      image: 'assets/angular-course.jpg'
+      image: 'assets/circuit.jpg'
     },
     {
-      title: 'Erweiterte Angular-Techniken',
+      title: 'Wo ist was?',
       subtitle: 'Fortgeschrittene Konzepte',
       description: 'Vertiefe dein Wissen über Angular mit fortgeschrittenen Techniken und Best Practices.',
-      image: 'assets/angular-advanced.jpg'
+      image: 'assets/teaching.jpg'
+    },{
+      title: 'Wer bin ich? - über mich',
+      subtitle: 'Julia Borndörfer geb. Schmaus',
+      description: 'Vertiefe dein Wissen über Angular mit fortgeschrittenen Techniken und Best Practices.',
+      image: 'assets/people.jpg'
     },
     {
-      title: 'Angular und RxJS',
+      title: 'Töpferkurs',
       subtitle: 'Reaktive Programmierung',
       description: 'Erfahre, wie du reaktive Programmierung mit RxJS in Angular nutzen kannst.',
-      image: 'assets/angular-rxjs.jpg'
+      image: 'assets/volume.jpg'
     }
   ];
+
+  constructor(private router: Router) {}
+
+  navigateToBooking() {
+    this.router.navigate(['/buchung']);
+  }
 }

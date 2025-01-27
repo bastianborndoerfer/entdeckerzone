@@ -4,7 +4,7 @@ import {CoursecardsComponent} from '../coursecards/coursecards.component';
 @Component({
   selector: 'app-body',
   imports: [
-    CoursecardsComponent
+    CoursecardsComponent,
   ],
   templateUrl: './body.component.html',
   standalone: true,

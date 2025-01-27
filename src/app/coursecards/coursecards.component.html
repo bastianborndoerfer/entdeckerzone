@@ -1,16 +1,17 @@
-<div class="course-container">
-  <mat-card *ngFor="let course of courses" class="course-card">
+<div class="course-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4">
+  <mat-card *ngFor="let course of courses" class="course-card bg-white shadow-lg rounded-lg overflow-hidden">
     <mat-card-header>
-    <mat-card-title>{{ course.title }}</mat-card-title>
-    <mat-card-subtitle>{{ course.subtitle }}</mat-card-subtitle>
+      <div mat-card-avatar class="course-icon"></div>
+      <mat-card-title class="text-lg font-bold">{{ course.title }}</mat-card-title>
+      <mat-card-subtitle class="text-sm text-gray-500">{{ course.subtitle }}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image [src]="course.image" alt="{{ course.title }}">
+    <img mat-card-image [src]="course.image" alt="{{ course.title }}" class="w-full h-48 object-cover">
     <mat-card-content>
-      <p>{{ course.description }}</p>
+      <p class="text-gray-700">{{ course.description }}</p>
     </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>Mehr erfahren</button>
-      <button mat-button>Anmelden</button>
+    <mat-card-actions class="flex justify-between">
+      <button mat-button class="text-blue-500 hover:text-blue-700">Mehr erfahren</button>
+      <button mat-button class="text-green-500 hover:text-green-700" (click)="navigateToBooking()">Buchen</button>
     </mat-card-actions>
   </mat-card>
 </div>
