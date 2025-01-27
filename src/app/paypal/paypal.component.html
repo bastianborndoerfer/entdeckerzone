@@ -1,0 +1,17 @@
+
+<mat-card class="flex flex-col items-center p-6 space-y-4 w-fit">
+@if (!paidFor) {
+  <div class="text-center space-y-4">
+  <h1 class="text-2xl font-bold">Buche den Kurs - {{product.price}}EUR</h1>
+  <p class="text-gray-700">{{product.description}}</p>
+  <img width="400" class="mx-auto" [src]="product.img">
+</div>
+}
+@if (paidFor) {
+  <div class="text-center">
+  <h1 class="text-2xl font-bold">Danke, dass Du den Kurs gebucht hast!</h1>
+  </div>
+}
+<div #paypal class="w-full flex justify-center"></div>
+  <button mat-raised-button color="primary" (click)="navigateToCourses()">Zurück zu den Kursen</button>
+</mat-card>
