@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {
   MatCard,
   MatCardActions,
@@ -9,6 +9,8 @@ import {
 } from '@angular/material/card';
 import {NgForOf} from '@angular/common';
 import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
+import {DialogComponent} from '../dialog/dialog.component';
 
 @Component({
   selector: 'app-coursecards',
@@ -26,6 +28,9 @@ import {Router} from '@angular/router';
   ]
 })
 export class CoursecardsComponent {
+
+  private readonly dialog = inject(MatDialog);
+
   courses = [
     {
       title: 'Einfache Stromkreise',
@@ -56,5 +61,10 @@ export class CoursecardsComponent {
 
   navigateToBooking() {
     this.router.navigate(['/buchung']);
+  }
+
+  openDialog() {
+    this.dialog.open(DialogComponent, {
+    });
   }
 }
